@@ -57,6 +57,7 @@
               t = "tmux";
               ll = "ls -lG";
               ls = "ls -G";
+              l = "ls -G";
             };
           };
 
