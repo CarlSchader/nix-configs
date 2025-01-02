@@ -44,6 +44,7 @@
             pkgs.tmux
             pkgs.git
             pkgs.gh
+            pkgs.cargo
           ];
 
           programs.zsh = {
@@ -76,6 +77,13 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Carls-MacBook-Pro-2
     darwinConfigurations."Carls-MacBook-Pro-2" = nix-darwin.lib.darwinSystem {
+      modules = [ 
+        configuration
+        home-manager.darwinModules.home-manager
+      ];
+    };
+
+    darwinConfigurations."Carls-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       modules = [ 
         configuration
         home-manager.darwinModules.home-manager
