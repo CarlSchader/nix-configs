@@ -45,6 +45,7 @@
             pkgs.git
             pkgs.gh
             pkgs.cargo
+            pkgs.pigz
           ];
 
           programs.zsh = {
@@ -113,6 +114,7 @@
             pkgs.git
             pkgs.gh
             pkgs.cargo
+            pkgs.pigz
           ];
 
           programs.zsh = {
