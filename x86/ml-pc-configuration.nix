@@ -93,7 +93,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.carlschader = import ./home.nix;
+    users.carlschader = import ../home.nix;
   };
 
   # Install firefox.
