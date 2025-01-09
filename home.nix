@@ -1,6 +1,6 @@
 # home-manager configuration
 
-{config, pkgs, custom-packages, ...}: 
+inputs@{config, pkgs, ...}: 
 let
   shellAliases = {
     t = "tmux";
@@ -10,6 +10,7 @@ let
     g = "grep";
     k = "kubectl";
   };
+  custom-packages = inputs.custom-packages or [];
 in
 {  
   home.packages = with pkgs; [ 
