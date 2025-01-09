@@ -9,7 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }: {
+  outputs = inputs@{ nix-darwin, nixpkgs, home-manager, ... }: {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Carls-MacBook-Pro-2
     darwinConfigurations."Carls-MacBook-Pro-2" = nix-darwin.lib.darwinSystem {
