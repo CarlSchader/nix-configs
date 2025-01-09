@@ -30,7 +30,11 @@
       system = "x86_64-linux";
       modules = [
         ./x86/ml-pc-configuration.nix
-        home-manager.nixosModules.home-manager
+        home-manager.nixosModules.home-manager {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.carlschader = import ./home.nix;
+        }
       ];
     };
 
