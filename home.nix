@@ -32,6 +32,7 @@ in
     code-cursor
     jq
     zstd
+    zsh
   ];
 
   # programs.openssh = {
@@ -47,7 +48,6 @@ in
     userEmail = "carlschader@gmail.com";
   };
 
-  # for macos
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -60,9 +60,8 @@ in
     shellAliases = shellAliases;
   };
 
-  # for linux
   programs.bash = {
-    enable = true;
+    enable = false;
     enableCompletion = true;
     shellAliases = shellAliases;
   };
