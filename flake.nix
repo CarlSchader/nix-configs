@@ -19,7 +19,11 @@
       ];
     };
 
+    # work laptop
     darwinConfigurations."Carls-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+      specialArgs = {
+        custom-packages = [ tailscale ];
+      };
       modules = [ 
         ./darwin.nix
         home-manager.darwinModules.home-manager

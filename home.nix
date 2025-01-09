@@ -1,17 +1,13 @@
 # home-manager configuration
 
-{config, pkgs, ...}: 
+{config, pkgs, custom-packages, ...}: 
 let
   shellAliases = {
     t = "tmux";
     ll = "ls -lhG";
     ls = "ls -G";
     l = "ls -G";
-    g = "git";
-    gst = "git status";
-    gcm = "git commit -m";
-    gca = "git commit --amend --no-edit";
-    gcam = "git commit -am";
+    g = "grep";
     k = "kubectl";
   };
 in
@@ -32,8 +28,7 @@ in
     code-cursor
     jq
     zstd
-    zsh
-  ];
+  ] ++ custom-packages;
 
   # programs.openssh = {
   #   enable = true;
@@ -61,7 +56,7 @@ in
   };
 
   programs.bash = {
-    enable = false;
+    enable = true;
     enableCompletion = true;
     shellAliases = shellAliases;
   };
