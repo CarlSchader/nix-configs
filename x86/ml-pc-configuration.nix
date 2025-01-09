@@ -90,6 +90,12 @@
     ];
   };
 
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.carlschader = import ./home.nix;
+  };
+
   # Install firefox.
   programs.firefox.enable = true;
 

@@ -30,6 +30,7 @@
       system = "x86_64-linux";
       modules = [
         ./x86/ml-pc-configuration.nix
+        home-manager.nixosModules.home-manager
       ];
     };
 
