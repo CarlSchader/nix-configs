@@ -31,9 +31,9 @@
       modules = [
         ./x86/ml-pc-configuration.nix
         home-manager.nixosModules.home-manager {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.carlschader = import ./home.nix;
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.carlschader = import ./home.nix;
         }
       ];
     };
