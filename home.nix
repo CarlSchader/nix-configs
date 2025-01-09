@@ -1,6 +1,6 @@
 # home-manager configuration
 
-inputs@{config, pkgs, ...}: 
+{config, pkgs, specialArgs, ...}: 
 let
   shellAliases = {
     t = "tmux";
@@ -10,9 +10,8 @@ let
     g = "grep";
     k = "kubectl";
   };
-  custom-packages = inputs.custom-packages or [];
-in
-{  
+  custom-packages = specialArgs.custom-packages or [];
+in {  
   home.packages = with pkgs; [ 
     neovim 
     nixd
@@ -26,7 +25,6 @@ in
     awscli2
     brave
     kubectl
-    code-cursor
     jq
     zstd
   ] ++ custom-packages;

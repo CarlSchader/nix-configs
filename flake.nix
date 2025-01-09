@@ -21,9 +21,7 @@
 
     # work laptop
     darwinConfigurations."Carls-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-      _module.args = {
-        custom-packages = with home-manager.packages.aarch64-darwin; [ tailscale ];
-      };
+      specialArgs = { custom-packages = with home-manager.packages.aarch64-darwin; [ tailscale ]; };
       modules = [ 
         ./darwin.nix
         home-manager.darwinModules.home-manager
