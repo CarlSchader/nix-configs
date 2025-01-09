@@ -12,6 +12,7 @@ let
     gcm = "git commit -m";
     gca = "git commit --amend --no-edit";
     gcam = "git commit -am";
+    k = "kubectl";
   };
 in
 {  
@@ -23,7 +24,28 @@ in
     gh
     cargo
     pigz
+    wezterm
+    ripgrep
+    awscli2
+    brave
+    kubectl
+    code-cursor
+    jq
+    zstd
   ];
+
+  # programs.openssh = {
+  #   enable = true;
+  #   authorizedKeys = [
+  #
+  #   ];
+  # };
+
+  programs.git = {
+    enable = true;
+    userName = "Carl Schader";
+    userEmail = "carlschader@gmail.com";
+  };
 
   # for macos
   programs.zsh = {
