@@ -1,6 +1,6 @@
 # home-manager configuration
 
-{config, pkgs, specialArgs, ...}: 
+{config, pkgs, ...}: 
 let
   shellAliases = {
     t = "tmux";
@@ -10,7 +10,6 @@ let
     g = "grep";
     k = "kubectl";
   };
-  custom-packages = specialArgs.custom-packages or [];
 in {  
   home.packages = with pkgs; [ 
     neovim 
@@ -27,7 +26,7 @@ in {
     kubectl
     jq
     zstd
-  ] ++ custom-packages;
+  ];
 
   # programs.openssh = {
   #   enable = true;
