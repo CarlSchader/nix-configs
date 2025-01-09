@@ -25,5 +25,13 @@
         home-manager.darwinModules.home-manager
       ];
     };
+
+    nixosConfigurations.ml-pc = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./x86/ml-pc-configuration.nix
+      ];
+    };
+
   };
 }
