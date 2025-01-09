@@ -1,16 +1,31 @@
 # home-manager configuration
 
-{config, pkgs, ...}: {
-  home.packages = [ 
-    pkgs.neovim 
-    pkgs.nixd
-    pkgs.tmux
-    pkgs.git
-    pkgs.gh
-    pkgs.cargo
-    pkgs.pigz
+{config, pkgs, ...}: 
+let
+  shellAliases = {
+    t = "tmux";
+    ll = "ls -lhG";
+    ls = "ls -G";
+    l = "ls -G";
+    g = "git";
+    gst = "git status";
+    gcm = "git commit -m";
+    gca = "git commit --amend --no-edit";
+    gcam = "git commit -am";
+  };
+in
+{  
+  home.packages = with pkgs; [ 
+    neovim 
+    nixd
+    tmux
+    git
+    gh
+    cargo
+    pigz
   ];
 
+  # for macos
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -20,12 +35,14 @@
       eval 'ssh-agent -s'
       ssh-add ~/.ssh/id_ed25519
     '';
-    shellAliases = {
-      t = "tmux";
-      ll = "ls -lhG";
-      ls = "ls -G";
-      l = "ls -G";
-    };
+    shellAliases = shellAliases;
+  };
+
+  # for linux
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    shellAliases = shellAliases;
   };
 
   programs.home-manager.enable = true;
