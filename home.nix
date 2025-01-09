@@ -25,7 +25,6 @@
       ll = "ls -lhG";
       ls = "ls -G";
       l = "ls -G";
-      test-echo = "echo 'Hello, World!'";
     };
   };
 
