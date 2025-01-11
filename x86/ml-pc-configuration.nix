@@ -88,7 +88,9 @@
     packages = with pkgs; [
     #  thunderbird
     ];
-    openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2etc/etc/etcjwrsh8e596z6J0l7 example@host" "ssh-ed25519 AAAAC3NzaCetcetera/etceteraJZMfk3QPfQ foo@bar" ];
+    openssh.authorizedKeys.keys = [ 
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnEa9ffHtw4evQmVDKaoVDMLGan0k4Olrs1h+jPvhpc carlschader@Carls-MacBook-Pro.local" # work 
+    ];
   };
 
   # Install firefox.
