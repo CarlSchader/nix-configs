@@ -26,6 +26,7 @@ in {
     kubectl
     jq
     zstd
+    python313
   ];
 
   # programs.openssh = {
