@@ -58,6 +58,10 @@ in {
     enable = true;
     enableCompletion = true;
     shellAliases = shellAliases;
+    initExtra = ''
+      eval 'ssh-agent -s'
+      ssh-add ~/.ssh/id_ed25519
+    '';
   };
 
   programs.home-manager.enable = true;
