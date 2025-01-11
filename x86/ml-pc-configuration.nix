@@ -14,6 +14,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Disable the GNOME3/GDM auto-suspend feature that cannot be disabled in GUI!
+  # If no user is logged in, the machine will power down after 20 minutes.
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -57,6 +63,9 @@
     layout = "us";
     variant = "";
   };
+
+  # prevent gnome from auto suspend
+  services.xserver.displayManager.gdm.autoSuspend = false;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
