@@ -3,7 +3,12 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  authorizedKeys = [ 
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEfes+9mHAnHSb0GjyP305zzFtS2P12e3Ha/Vur+62He carlschader@Carls-MacBook-Pro.local" # personal
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnEa9ffHtw4evQmVDKaoVDMLGan0k4Olrs1h+jPvhpc carlschader@Carls-MacBook-Pro.local" # work 
+  ];
+in 
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -89,22 +94,24 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.carlschader = {
     isNormalUser = true;
     description = "Carl Schader";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
-    openssh.authorizedKeys.keys = [ 
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEfes+9mHAnHSb0GjyP305zzFtS2P12e3Ha/Vur+62He carlschader@Carls-MacBook-Pro.local" # personal
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnEa9ffHtw4evQmVDKaoVDMLGan0k4Olrs1h+jPvhpc carlschader@Carls-MacBook-Pro.local" # work 
-    ];
+    # packages = with pkgs; [];
+    openssh.authorizedKeys.keys = authorizedKeys; 
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  users.users.saronic = {
+    isNormalUser = true;
+    description = "Carl Schader";
+    extraGroups = [ "networkmanager" "wheel" ];
+    # packages = with pkgs; [];
+    openssh.authorizedKeys.keys = authorizedKeys;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
