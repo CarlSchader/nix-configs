@@ -99,7 +99,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.carlschader = {
     isNormalUser = true;
-    description = "Carl Schader";
+    description = "carlschader";
     extraGroups = [ "networkmanager" "wheel" ];
     # packages = with pkgs; [];
     openssh.authorizedKeys.keys = authorizedKeys; 
@@ -107,7 +107,7 @@ in
 
   users.users.saronic = {
     isNormalUser = true;
-    description = "Carl Schader";
+    description = "saronic";
     extraGroups = [ "networkmanager" "wheel" ];
     # packages = with pkgs; [];
     openssh.authorizedKeys.keys = authorizedKeys;
