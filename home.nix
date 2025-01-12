@@ -9,6 +9,7 @@ let
     l = "ls -G";
     g = "grep";
     k = "kubectl";
+    tarz = "tar --zstd";
   };
 in {  
   home.packages = with pkgs; [ 
