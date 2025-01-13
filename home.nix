@@ -19,6 +19,7 @@ in {
     git
     gh
     cargo
+    rust-analyzer
     pigz
     wezterm
     ripgrep
