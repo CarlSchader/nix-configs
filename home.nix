@@ -28,7 +28,7 @@ in {
     jq
     zstd
     python313
-    tree-sitter
+    unzip
   ];
 
   # programs.openssh = {
