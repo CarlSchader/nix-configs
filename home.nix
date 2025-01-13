@@ -29,6 +29,7 @@ in {
     zstd
     python313
     unzip
+    nodejs_23
   ];
 
   # programs.openssh = {
