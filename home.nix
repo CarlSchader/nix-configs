@@ -28,6 +28,7 @@ in {
     jq
     zstd
     python313
+    tree-sitter
   ];
 
   # programs.openssh = {
