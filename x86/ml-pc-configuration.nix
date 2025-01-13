@@ -109,7 +109,7 @@ in
     isNormalUser = true;
     description = "saronic";
     extraGroups = [ "networkmanager" "wheel" ];
-    # packages = with pkgs; [];
+    packages = with pkgs; [ gcc ];
     openssh.authorizedKeys.keys = authorizedKeys;
   };
 
