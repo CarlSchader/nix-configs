@@ -4,6 +4,10 @@
 
 { config, pkgs, ... }:
 let
+  defaultShell = pkgs.zsh;
+  defaultUserPackages = with pkgs; [
+    gcc
+  ];
   authorizedKeys = [ 
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEfes+9mHAnHSb0GjyP305zzFtS2P12e3Ha/Vur+62He carlschader@Carls-MacBook-Pro.local" # personal
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnEa9ffHtw4evQmVDKaoVDMLGan0k4Olrs1h+jPvhpc carlschader@Carls-MacBook-Pro.local" # work 
@@ -101,7 +105,8 @@ in
     isNormalUser = true;
     description = "carlschader";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = defaultUserPackages;
+    shell = defaultShell;
     openssh.authorizedKeys.keys = authorizedKeys; 
   };
 
@@ -109,9 +114,9 @@ in
     isNormalUser = true;
     description = "saronic";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [ gcc ];
+    packages = defaultUserPackages;
+    shell = defaultShell;
     openssh.authorizedKeys.keys = authorizedKeys;
-    shell = pkgs.zsh;
   };
 
   programs.zsh.enable = true;
