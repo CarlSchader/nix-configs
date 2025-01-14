@@ -101,7 +101,7 @@ in
     isNormalUser = true;
     description = "carlschader";
     extraGroups = [ "networkmanager" "wheel" ];
-    # packages = with pkgs; [];
+    packages = with pkgs; [];
     openssh.authorizedKeys.keys = authorizedKeys; 
   };
 
@@ -111,7 +111,10 @@ in
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ gcc ];
     openssh.authorizedKeys.keys = authorizedKeys;
+    shell = pkgs.zsh;
   };
+
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
