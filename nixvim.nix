@@ -1,4 +1,6 @@
 # nixvim config
+{ pkgs, ... }:
+
 {
   enable = true;
 
@@ -30,6 +32,51 @@
       lspconfig[lsp].setup {}
     end
 
+    local has_words_before = function()
+      unpack = unpack or table.unpack
+      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    end
+
+    local snippy = require("snippy")
+
+    local cmp = require("cmp")
+
+    cmp.setup({
+
+      -- ... Your other configuration ...
+
+      mapping = {
+
+        -- ... Your other mappings ...
+
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif snippy.can_expand_or_advance() then
+            snippy.expand_or_advance()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif snippy.can_jump(-1) then
+            snippy.previous()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        -- ... Your other mappings ...
+      },
+
+      -- ... Your other configuration ...
+    })
   '';
 
   keymaps = [
@@ -37,6 +84,11 @@
     {  
       action = ":NvimTreeToggle<CR>";
       key = "<C-n>";
+      mode = "n";
+    }
+    {  
+      action = ":NvimTreeFocus<CR>";
+      key = "<C-h>";
       mode = "n";
     }
 
@@ -64,16 +116,17 @@
 
     # barbar
     {
-      action = ":BufferPrevious<CR>";
-      key = "<S-Tab>";
-      mode = "n";
-    }
-    {
       action = ":BufferNext<CR>";
-      key = "<Tab>";
+      key = "<A-]>";
       mode = "n";
     }
+
     {
+      action = ":BufferPrevious<CR>";
+      key = "<A-[>";
+      mode = "n";
+    }
+        {
       action = ":BufferClose<CR>";
       key = "<leader>x";
       mode = "n";
@@ -86,6 +139,20 @@
     telescope.enable = true;
     web-devicons.enable = true;
     barbar.enable = true;
+    gitblame.enable = true;
+
+    cmp = {
+      enable = true;
+      autoEnableSources = true;
+      settings.sources = [
+        { name = "snippy"; }
+        { name = "nvim_lsp"; }
+        { name = "rg"; }
+        { name = "treesitter"; }
+        { name = "path"; }
+        { name = "buffer"; }
+      ];
+    }; 
 
     treesitter = {
       enable = true;
@@ -93,15 +160,6 @@
       settings = {
         highlight.enable = true;
         indent.enable = true;
-
-        # auto_install = false;
-        # ensure_installed = [
-        #   "nix"
-        #   "python"
-        #   "rust"
-        #   "javascript"
-        #   "rust"
-        # ];
       };
     };
   };

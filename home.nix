@@ -37,7 +37,7 @@ in {
     typescript-language-server
   ];
 
-  programs.nixvim = import ./nixvim.nix;
+  programs.nixvim = import ./nixvim.nix { inherit pkgs; };
 
   programs.git = {
     enable = true;
