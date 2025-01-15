@@ -2,6 +2,8 @@
 {
   enable = true;
 
+  colorschemes.ayu.enable = true;
+
   globals.mapleader = " ";
 
   extraConfigLua = ''
@@ -12,14 +14,15 @@
 
     local lspconfig = require "lspconfig"
 
-    -- look here for valid servers
-    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-
+    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md    
     -- load these servers (make sure these are installed locally
+    -- :help lspconfig-all
+
     local servers = { 
       "rust_analyzer", 
       "pyright", 
-      "nixd" 
+      "nixd",
+      "ts_ls"
     }
 
     -- lsps with default config
@@ -58,20 +61,48 @@
       key = "<leader>fh";
       mode = "n";
     }
+
+    # barbar
+    {
+      action = ":BufferPrevious<CR>";
+      key = "<S-Tab>";
+      mode = "n";
+    }
+    {
+      action = ":BufferNext<CR>";
+      key = "<Tab>";
+      mode = "n";
+    }
+    {
+      action = ":BufferClose<CR>";
+      key = "<leader>x";
+      mode = "n";
+    }
   ];
 
   plugins = {
-    web-devicons.enable = true;
-
-    treesitter.enable = true;
-    treesitter.settings = {
-      highlight.enable = true;
-      auto_install = true;
-      indent.enable = true;
-    };
-
+    lsp.enable = true;
     nvim-tree.enable = true;
     telescope.enable = true;
-    lsp.enable = true;
+    web-devicons.enable = true;
+    barbar.enable = true;
+
+    treesitter = {
+      enable = true;
+
+      settings = {
+        highlight.enable = true;
+        indent.enable = true;
+
+        # auto_install = false;
+        # ensure_installed = [
+        #   "nix"
+        #   "python"
+        #   "rust"
+        #   "javascript"
+        #   "rust"
+        # ];
+      };
+    };
   };
 }

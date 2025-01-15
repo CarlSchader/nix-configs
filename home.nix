@@ -34,6 +34,7 @@ in {
     nixd
     rust-analyzer
     pyright
+    typescript-language-server
   ];
 
   programs.nixvim = import ./nixvim.nix;
