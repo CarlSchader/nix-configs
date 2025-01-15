@@ -3,6 +3,7 @@
 {config, pkgs, ...}: 
 let
   shellAliases = {
+    n = "nvim";
     t = "tmux";
     ll = "ls -lhG";
     ls = "ls -G";
