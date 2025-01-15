@@ -45,13 +45,13 @@
     # barbar
     {
       action = ":BufferNext<CR>";
-      key = "<leader-]>";
+      key = "<leader>]";
       mode = "n";
     }
 
     {
       action = ":BufferPrevious<CR>";
-      key = "<leader-[>";
+      key = "<leader>[";
       mode = "n";
     }
         {
@@ -82,6 +82,7 @@
         { name = "treesitter"; }
         { name = "path"; }
         { name = "buffer"; }
+        { name = "copilot_cmp"; }
       ];
     }; 
 
