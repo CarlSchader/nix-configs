@@ -14,13 +14,10 @@ let
   };
 in {  
   home.packages = with pkgs; [ 
-    nixd
     tmux
     git
     gh
     cargo
-    rust-analyzer
-    pigz
     wezterm
     ripgrep
     awscli2
@@ -31,6 +28,12 @@ in {
     python313
     unzip
     nodejs_23
+    pigz
+
+    # lsp's
+    nixd
+    rust-analyzer
+    pyright
   ];
 
   programs.nixvim = import ./nixvim.nix;
