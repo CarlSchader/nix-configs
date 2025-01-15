@@ -13,7 +13,6 @@ let
   };
 in {  
   home.packages = with pkgs; [ 
-    neovim 
     nixd
     tmux
     git
@@ -33,12 +32,7 @@ in {
     nodejs_23
   ];
 
-  # programs.openssh = {
-  #   enable = true;
-  #   authorizedKeys = [
-  #
-  #   ];
-  # };
+ programs.nixvim = import ./nixvim.nix; 
 
   programs.git = {
     enable = true;

@@ -7,15 +7,18 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nix-darwin, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nix-darwin, nixpkgs, home-manager, nixvim, ... }: {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Carls-MacBook-Pro-2
     darwinConfigurations."Carls-MacBook-Pro-2" = nix-darwin.lib.darwinSystem {
       modules = [ 
         ./darwin.nix
         home-manager.darwinModules.home-manager
+        nixvim.darwinModules.nixvim
       ];
     };
 
@@ -24,6 +27,7 @@
       modules = [ 
         ./darwin.nix
         home-manager.darwinModules.home-manager
+        nixvim.darwinModules.nixvim
       ];
     };
 
@@ -37,6 +41,7 @@
           home-manager.users.carlschader = import ./home.nix;
           home-manager.users.saronic = import ./home.nix;
         }
+        nixvim.nixosModules.nixvim
       ];
     };
 
