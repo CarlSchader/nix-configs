@@ -18,7 +18,7 @@
       modules = [ 
         ./darwin.nix
         home-manager.darwinModules.home-manager
-        nixvim.darwinModules.nixvim
+        nixvim.nixDarwinModules.nixvim
       ];
     };
 
@@ -27,7 +27,7 @@
       modules = [ 
         ./darwin.nix
         home-manager.darwinModules.home-manager
-        nixvim.darwinModules.nixvim
+        nixvim.nixDarwinModules.nixvim
       ];
     };
 
