@@ -17,8 +17,14 @@
     darwinConfigurations."Carls-MacBook-Pro-2" = nix-darwin.lib.darwinSystem {
       modules = [ 
         ./darwin.nix
-        home-manager.darwinModules.home-manager
-        nixvim.nixDarwinModules.nixvim
+        home-manager.darwinModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.carlschader = import ./home.nix;
+          home-manager.sharedModules = [
+            nixvim.homeManagerModules.nixvim
+          ];
+        }
       ];
     };
 
@@ -26,8 +32,14 @@
     darwinConfigurations."Carls-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       modules = [ 
         ./darwin.nix
-        home-manager.darwinModules.home-manager
-        nixvim.nixDarwinModules.nixvim
+        home-manager.darwinModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.carlschader = import ./home.nix;
+          home-manager.sharedModules = [
+            nixvim.homeManagerModules.nixvim
+          ];
+        }
       ];
     };
 
@@ -40,8 +52,10 @@
           home-manager.useUserPackages = true;
           home-manager.users.carlschader = import ./home.nix;
           home-manager.users.saronic = import ./home.nix;
+          home-manager.sharedModules = [
+            nixvim.homeManagerModules.nixvim
+          ];
         }
-        nixvim.nixosModules.nixvim
       ];
     };
 

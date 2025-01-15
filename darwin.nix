@@ -22,13 +22,6 @@
     # The platform the configuration will be used on.
     nixpkgs.hostPlatform = "aarch64-darwin";
 
-    # Add home-manager configuration here
-    home-manager = {
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        users.carlschader = import ./home.nix;
-    };
-
     # User configuration
     users.users.carlschader = {
         name = "carlschader";

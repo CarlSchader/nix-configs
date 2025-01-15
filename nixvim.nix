@@ -1,5 +1,5 @@
 # nixvim config
 
 {
-  enabled = true;
+  enable = true;
 }

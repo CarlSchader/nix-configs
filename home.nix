@@ -32,7 +32,7 @@ in {
     nodejs_23
   ];
 
- nixvim.enable = true; 
+  programs.nixvim = import ./nixvim.nix;
 
   programs.git = {
     enable = true;
