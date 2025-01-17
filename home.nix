@@ -11,6 +11,7 @@ let
     g = "grep";
     k = "kubectl";
     tarz = "tar --zstd";
+    venv = "source .venv/bin/activate";
   };
 in {  
   home.packages = with pkgs; [ 
@@ -25,10 +26,13 @@ in {
     kubectl
     jq
     zstd
-    python313
     unzip
     nodejs_23
     pigz
+
+    # python stuff
+    python312
+    virtualenv
 
     # lsp's
     nixd
