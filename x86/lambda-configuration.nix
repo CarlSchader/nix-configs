@@ -85,6 +85,7 @@
     packages = with pkgs; [
      vim
      git
+     tailscale
     ];
   };
 
