@@ -63,6 +63,7 @@ in {
       ssh-add ~/.ssh/id_ed25519
 
       export ANTHROPIC_API_KEY=$(cat ~/.anthropic-api-key.txt)
+      export EDITOR=nvim
     '';
     shellAliases = shellAliases;
   };
@@ -76,6 +77,7 @@ in {
       ssh-add ~/.ssh/id_ed25519
 
       export ANTHROPIC_API_KEY=$(cat ~/.anthropic-api-key.txt)
+      export EDITOR=nvim
     '';
   };
 
