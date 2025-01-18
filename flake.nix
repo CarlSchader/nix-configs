@@ -59,7 +59,7 @@
       ];
     };
 
-   nixosConfigurations.carl-lambda = nixpkgs.lib.nixosSystem {
+   nixosConfigurations.lambda-carl = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./x86/lambda-configuration.nix
