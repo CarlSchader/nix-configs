@@ -23,6 +23,7 @@ in {
     git
     gh
     wezterm
+    ghostty
     ripgrep
     awscli2
     kubectl
