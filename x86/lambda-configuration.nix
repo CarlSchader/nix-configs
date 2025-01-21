@@ -3,7 +3,13 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+let
+  defaultShell = pkgs.zsh;
+  authorizedKeys = [ 
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEfes+9mHAnHSb0GjyP305zzFtS2P12e3Ha/Vur+62He carlschader@Carls-MacBook-Pro.local" # personal
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILnEa9ffHtw4evQmVDKaoVDMLGan0k4Olrs1h+jPvhpc carlschader@Carls-MacBook-Pro.local" # work 
+  ];
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -74,6 +80,8 @@
     #media-session.enable = true;
   };
 
+  services.tailscale.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -83,14 +91,20 @@
     description = "carl";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-     vim
-     git
-     tailscale
+      vim
+      git
+      tailscale
+      slack
+      gcc
     ];
+    shell = defaultShell;
+    openssh.authorizedKeys.keys = authorizedKeys;
   };
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -113,7 +127,11 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+    settings.X11Forwarding = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
