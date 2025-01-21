@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.initrd.includeDefaultModules = true;
   boot.supportedFilesystems = [ "ext4" ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "kvm-amd" "v4l2loopback" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
