@@ -101,6 +101,21 @@ in
     openssh.authorizedKeys.keys = authorizedKeys;
   };
 
+  users.users.saronic = {
+    isNormalUser = true;
+    description = "saronic";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      vim
+      git
+      tailscale
+      slack
+      gcc
+    ];
+    shell = defaultShell;
+    openssh.authorizedKeys.keys = authorizedKeys;
+  };
+
   # Install firefox.
   programs.firefox.enable = true;
 
