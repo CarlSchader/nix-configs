@@ -13,7 +13,8 @@
   boot.initrd.includeDefaultModules = true;
   boot.supportedFilesystems = [ "ext4" ];
   boot.kernelModules = [ "kvm-amd" "v4l2loopback" ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback.out ];
+  boot.extraModprobeConfig = "options v4l2loopback nr_devices=4 video_nr=4,5,6,7,8,9,10,11 card_label=v4l2lo0,v4l2lo1,v4l2lo2,v4l2lo3,v4l2lo4,v4l2lo5,v4l2lo6,v4l2lo7,";
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/3ed162ac-fb59-48a3-8a04-c288e6932dd9";
