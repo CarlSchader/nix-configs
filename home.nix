@@ -15,26 +15,30 @@ let
   };
 in {  
   home.packages = with pkgs; [ 
+    ## user applications
+    brave
+
+    ## dev tools
     tmux
     git
     gh
-    cargo
     wezterm
     ripgrep
     awscli2
-    brave
     kubectl
     jq
     zstd
     unzip
-    nodejs_23
     pigz
-
-    # python stuff
-    python312
     virtualenv
 
-    # lsp's
+    ## compilers and runtimes
+    nodejs_23
+    cargo
+    python312
+
+
+    ## lsps
     nixd
     rust-analyzer
     pyright
@@ -59,6 +63,7 @@ in {
       ssh-add ~/.ssh/id_ed25519
 
       export ANTHROPIC_API_KEY=$(cat ~/.anthropic-api-key.txt)
+      export EDITOR=nvim
     '';
     shellAliases = shellAliases;
   };
@@ -72,6 +77,7 @@ in {
       ssh-add ~/.ssh/id_ed25519
 
       export ANTHROPIC_API_KEY=$(cat ~/.anthropic-api-key.txt)
+      export EDITOR=nvim
     '';
   };
 
