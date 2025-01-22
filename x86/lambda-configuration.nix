@@ -136,6 +136,8 @@ in
   #  wget
     # v4l2loopback
     # v4l-utils
+    linuxPackages.v4l2loopback
+    v4l-utils
     sshfs
   ];
 
