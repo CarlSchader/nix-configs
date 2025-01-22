@@ -8,14 +8,15 @@
   colorschemes.ayu.enable = true;
 
   keymaps = [
-    # general
+    # # general
+    # {
+    #   action = ":lua vim.lsp.buf.declaration()<CR>";
+    #   key = "gD";
+    #   mode = "n";
+    # }
     {
-      action = ":lua vim.lsp.buf.declaration()<CR>";
-      key = "gD";
-      mode = "n";
-    }
-    {
-      action = ":lua vim.lsp.buf.definition()<CR>";
+      # action = ":lua vim.lsp.buf.definition()<CR>";
+      action = "<C-]>";
       key = "gd";
       mode = "n";
     }
