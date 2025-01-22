@@ -127,6 +127,8 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    linuxPackages.v4l2loopback
+    v4l-utils
     # nodejs_23 
   ];
 
