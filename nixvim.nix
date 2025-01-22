@@ -8,6 +8,18 @@
   colorschemes.ayu.enable = true;
 
   keymaps = [
+    # general
+    {
+      action = ":lua vim.lsp.buf.declaration()<CR>";
+      key = "gD";
+      mode = "n";
+    }
+    {
+      action = ":lua vim.lsp.buf.definition()<CR>";
+      key = "gd";
+      mode = "n";
+    }
+
     # nvim tree
     {  
       action = ":NvimTreeToggle<CR>";
