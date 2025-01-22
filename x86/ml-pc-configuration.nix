@@ -7,6 +7,7 @@ let
   defaultShell = pkgs.zsh;
   defaultUserPackages = with pkgs; [
     gcc
+    code-cursor
   ];
   authorizedKeys = [ 
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEfes+9mHAnHSb0GjyP305zzFtS2P12e3Ha/Vur+62He carlschader@Carls-MacBook-Pro.local" # personal
@@ -126,6 +127,8 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
+    linuxPackages.v4l2loopback
+    v4l-utils
     # nodejs_23 
   ];
 

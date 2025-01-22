@@ -50,7 +50,7 @@ in {
   programs.git = {
     enable = true;
     userName = "Carl Schader";
-    userEmail = "carlschader@gmail.com";
+    userEmail = "carl.schader@saronic.com";
   };
 
   programs.zsh = {

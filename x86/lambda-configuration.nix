@@ -30,6 +30,8 @@ in
   # Enable networking
   networking.networkmanager.enable = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Set your time zone.
   time.timeZone = "America/Indiana/Vincennes";
 
@@ -104,6 +106,21 @@ in
     openssh.authorizedKeys.keys = authorizedKeys;
   };
 
+  users.users.saronic = {
+    isNormalUser = true;
+    description = "saronic";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      vim
+      git
+      tailscale
+      slack
+      gcc
+    ];
+    shell = defaultShell;
+    openssh.authorizedKeys.keys = authorizedKeys;
+  };
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -117,6 +134,11 @@ in
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    # v4l2loopback
+    # v4l-utils
+    linuxPackages.v4l2loopback
+    v4l-utils
+    sshfs
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
