@@ -75,5 +75,18 @@
       ];
     };
 
+  templates = {
+      venv = {
+        path = ./templates/python;
+        description = "Python virutalenv project template";
+        welcomeText = ''
+          # Nix and python
+          - $ nix develop
+          - you're in a python virtual environment
+          - use pip like normal
+        '';
+      };
+    };
+
   };
 }
