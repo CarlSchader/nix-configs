@@ -20,7 +20,6 @@ in {
 
     ## dev tools
     tmux
-    git
     gh
     wezterm
     ripgrep
@@ -31,12 +30,13 @@ in {
     unzip
     pigz
     virtualenv
+    mediainfo
+    ffmpeg
 
     ## compilers and runtimes
     nodejs_23
     cargo
     python312
-
 
     ## lsps
     nixd
