@@ -15,29 +15,24 @@
         };
       in
       {
-        devShell = pkgs.mkShell {
+        devShell = pkgs.mkShell rec {
           buildInputs = with pkgs; [
-            # Python with packages
-            python313
-            # poetry
-            # pre-commit
-            # git
+            python310
           ];
 
           shellHook = ''
-            echo "Python development environment activated!"
+            echo "activating shell"
             
-            # Create a virtual environment if it doesn't exist
-            if [ ! -d .venv ]; then
-              echo "Creating virtual environment..."
-              python -m venv .venv
-            fi
-            
-            # Activate the virtual environment
-            source .venv/bin/activate
+            export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.lib.makeLibraryPath buildInputs}"
+            export TMPDIR=/tmp && export VENV=$(mktemp -d)
+            python -m venv $VENV
+            source $VENV/bin/activate
 
+            # Python with packages
             touch requirements.txt
             pip install -r requirements.txt
+
+            echo Done!
           '';
         };
       }

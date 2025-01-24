@@ -36,7 +36,7 @@ in {
     ## compilers and runtimes
     nodejs_23
     cargo
-    python312
+    python310
 
     ## lsps
     nixd
