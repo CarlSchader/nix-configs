@@ -13,7 +13,7 @@
   boot.kernelModules = [ "kvm-amd" "v4l2loopback" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback.out ];
   boot.extraModprobeConfig = ''
-        options v4l2loopback nr_devices=8 video_nr=0,1,2,3,4,5,6,7,8,9,10,11 card_label=v4l2lo0,v4l2lo1,v4l2lo2,v4l2lo3,v4l2lo4,v4l2lo5,v4l2lo6,v4l2lo7,v4l2lo8,v4l2lo9,v4l2lo10,v4l2lo11
+        options v4l2loopback nr_devices=8 video_nr=4,5,6,7,8,9,10,11 card_label=v4l2lo0,v4l2lo1,v4l2lo2,v4l2lo3,v4l2lo4,v4l2lo5,v4l2lo6,v4l2lo7
       '';
 
   fileSystems."/" =
