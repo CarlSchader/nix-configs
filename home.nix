@@ -81,6 +81,18 @@ in {
     '';
   };
 
+  nix.registry.configs = {
+    from = {
+      id = "configs";
+      type = "indirect";
+    };
+    to = {
+      owner = "CarlSchader";
+      repo = "nix-configs";
+      type = "github";
+    };
+  };
+
   programs.home-manager.enable = true;
 
   home.stateVersion = "24.11";

@@ -9,7 +9,6 @@
     # Necessary for using flakes on this system.
     nix.settings.experimental-features = "nix-command flakes";
     
-    # add registry for
 
     # Enable alternative shell support in nix-darwin.
     # programs.fish.enable = true;
