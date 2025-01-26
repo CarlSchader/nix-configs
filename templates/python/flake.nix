@@ -17,20 +17,19 @@
       {
         devShell = pkgs.mkShell rec {
           buildInputs = with pkgs; [
-            python310
+            python312
           ];
+
+          LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
 
           shellHook = ''
             echo "activating shell"
             
-            export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.lib.makeLibraryPath buildInputs}"
-            export TMPDIR=/tmp && export VENV=$(mktemp -d)
-            python -m venv $VENV
-            source $VENV/bin/activate
+            python -m venv ./.venv
+            source ./.venv/bin/activate
 
             # Python with packages
-            touch requirements.txt
-            pip install -r requirements.txt
+            touch ./requirements.txt
 
             echo Done!
           '';
