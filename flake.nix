@@ -78,11 +78,22 @@
   templates = {
       venv = {
         path = ./templates/python;
-        description = "Python virutalenv project template";
+        description = "Python virutal environment project template";
         welcomeText = ''
           # Nix and python
           - $ nix develop
           - you're in a python virtual environment
+          - use pip like normal
+        '';
+      };
+
+      ml = {
+        path = ./templates/python-cuda;
+        description = "Cuda python environment project template";
+        welcomeText = ''
+          # Nix and python
+          - $ nix develop
+          - you're in a python cuda virtual environment
           - use pip like normal
         '';
       };
