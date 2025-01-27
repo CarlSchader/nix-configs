@@ -34,6 +34,18 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = "ml-pc"; # Define your hostname.
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 80 443 ];
+    allowedTCPPortRanges = [ 
+      { from = 8000; to = 9000; }
+    ];
+    allowedUDPPortRanges = [
+      { from = 8000; to = 9000; }
+    ];
+  };
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
