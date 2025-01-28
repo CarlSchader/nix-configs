@@ -31,6 +31,7 @@ in
   networking.networkmanager.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "carl" ];
 
   # Set your time zone.
   time.timeZone = "America/Indiana/Vincennes";
@@ -136,6 +137,7 @@ in
   #  wget
     # v4l2loopback
     # v4l-utils
+    cachix
     linuxPackages.v4l2loopback
     v4l-utils
     sshfs
