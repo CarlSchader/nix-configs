@@ -7,11 +7,17 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixvim.url = "github:nix-community/nixvim";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    # nixvim.url = "github:nix-community/nixvim";
+    # nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nix-darwin, nixpkgs, home-manager, nixvim, ... }: {
+  outputs = inputs@{ 
+    nix-darwin, 
+    nixpkgs, 
+    home-manager, 
+    # nixvim, 
+    ... 
+  }: {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#Carls-MacBook-Pro-2
     darwinConfigurations."Carls-MacBook-Pro-2" = nix-darwin.lib.darwinSystem {
@@ -21,9 +27,9 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.carlschader = import ./home.nix;
-          home-manager.sharedModules = [
-            nixvim.homeManagerModules.nixvim
-          ];
+          # home-manager.sharedModules = [
+          #   nixvim.homeManagerModules.nixvim
+          # ];
         }
       ];
     };
@@ -36,9 +42,9 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.carlschader = import ./home.nix;
-          home-manager.sharedModules = [
-            nixvim.homeManagerModules.nixvim
-          ];
+          # home-manager.sharedModules = [
+          #   nixvim.homeManagerModules.nixvim
+          # ];
         }
       ];
     };
@@ -52,9 +58,9 @@
           home-manager.useUserPackages = true;
           home-manager.users.carlschader = import ./home.nix;
           home-manager.users.saronic = import ./home.nix;
-          home-manager.sharedModules = [
-            nixvim.homeManagerModules.nixvim
-          ];
+          # home-manager.sharedModules = [
+          #   nixvim.homeManagerModules.nixvim
+          # ];
         }
       ];
     };
@@ -68,9 +74,9 @@
           home-manager.useUserPackages = true;
           home-manager.users.carl = import ./home.nix;
           home-manager.users.saronic = import ./home.nix;
-          home-manager.sharedModules = [
-            nixvim.homeManagerModules.nixvim
-          ];
+          # home-manager.sharedModules = [
+          #   nixvim.homeManagerModules.nixvim
+          # ];
         }
       ];
     };

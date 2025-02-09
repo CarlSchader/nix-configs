@@ -20,6 +20,7 @@ in {
 
     ## dev tools
     tmux
+    neovim
     gh
     wezterm
     ripgrep
@@ -37,6 +38,7 @@ in {
     nodejs_23
     cargo
     python310
+    go
 
     ## lsps
     nixd
@@ -45,7 +47,7 @@ in {
     typescript-language-server
   ];
 
-  programs.nixvim = import ./nixvim.nix { inherit pkgs; };
+  # programs.nixvim = import ./nixvim.nix { inherit pkgs; };
 
   programs.git = {
     enable = true;
