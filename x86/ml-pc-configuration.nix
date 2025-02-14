@@ -4,7 +4,7 @@
 
 { config, pkgs, ... }:
 let
-  defaultShell = pkgs.zsh;
+  defaultShell = pkgs.bash;
   defaultUserPackages = with pkgs; [
     gcc
     code-cursor
