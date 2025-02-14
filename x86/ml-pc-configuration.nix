@@ -112,25 +112,14 @@ in
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.carlschader = {
+  users.users.carl = {
     isNormalUser = true;
-    description = "carlschader";
+    description = "Carl Schader";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = defaultUserPackages;
     shell = defaultShell;
     openssh.authorizedKeys.keys = authorizedKeys; 
   };
-
-  users.users.saronic = {
-    isNormalUser = true;
-    description = "saronic";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = defaultUserPackages;
-    shell = defaultShell;
-    openssh.authorizedKeys.keys = authorizedKeys;
-  };
-
-  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
