@@ -10,21 +10,17 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.initrd.includeDefaultModules = true;
   boot.supportedFilesystems = [ "ext4" ];
-  boot.kernelModules = [ "kvm-amd" "v4l2loopback" ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback.out ];
-  boot.extraModprobeConfig = ''
-        options v4l2loopback nr_devices=8 video_nr=4,5,6,7,8,9,10,11 card_label=v4l2lo0,v4l2lo1,v4l2lo2,v4l2lo3,v4l2lo4,v4l2lo5,v4l2lo6,v4l2lo7
-      '';
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/3ed162ac-fb59-48a3-8a04-c288e6932dd9";
+    { device = "/dev/disk/by-uuid/b6845098-f211-4eb3-8362-75ab6de0b401";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E47C-FE31";
+    { device = "/dev/disk/by-uuid/94B7-CD5E";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };

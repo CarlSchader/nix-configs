@@ -17,8 +17,7 @@ in
 {
   imports =
     [ # Include the results of the hardware scan.
-      # ./ml-pc-hardware-configuration.nix
-      ./hardware-configuration.nix
+      ./ml-pc-hardware-configuration.nix
     ];
 
   # Bootloader.

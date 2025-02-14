@@ -13,8 +13,7 @@ in
 {
   imports =
     [ # Include the results of the hardware scan.
-      # ./lambda-hardware-configuration.nix
-      ./hardware-configuration.nix
+      ./lambda-hardware-configuration.nix
     ];
 
   # Bootloader.
