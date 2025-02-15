@@ -76,18 +76,28 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # # Enable the GNOME Desktop Environment.
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.autoSuspend = false;
+
+  # Enable i3 window manager
+  services.xserver.desktopManager.xterm.enable = false;
+  services.xserver.displayManager.defaultSession = "none+i3";
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    extraPackages = with pkgs; [
+      dmenu
+      i3status
+      i3lock
+    ];
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
-
-  # prevent gnome from auto suspend
-  services.xserver.displayManager.gdm.autoSuspend = false;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
