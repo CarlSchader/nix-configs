@@ -82,19 +82,25 @@ in
 
     desktopManager = {
       xterm.enable = false;
-      xfce = {
-        enable = true;
-        noDesktop = true;
-        enableXfwm = false;
-      };
+      # xfce = {
+      #   enable = true;
+      #   noDesktop = true;
+      #   enableXfwm = false;
+      # };
     };
 
-    windowManager.i3.enable = true;
+    displayManager.defaultSession = "none+i3";
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu i3status i3lock
+      ];
+    };
 
     # videoDrivers = ["nvidia"]; # was causing black screen
   };
 
-  services.displayManager.defaultSession = "xfce";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
