@@ -63,8 +63,6 @@ in {
       PS1="%{$fg[green]%}%n%{$reset_color%}@%{$fg[green]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
       eval 'ssh-agent -s'
       ssh-add ~/.ssh/id_ed25519
-
-      export ANTHROPIC_API_KEY=$(cat ~/.anthropic-api-key.txt)
       export EDITOR=nvim
     '';
     shellAliases = shellAliases;
@@ -77,8 +75,6 @@ in {
     initExtra = ''
       eval 'ssh-agent -s'
       ssh-add ~/.ssh/id_ed25519
-
-      export ANTHROPIC_API_KEY=$(cat ~/.anthropic-api-key.txt)
       export EDITOR=nvim
     '';
   };
