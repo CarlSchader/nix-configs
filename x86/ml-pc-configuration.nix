@@ -74,29 +74,38 @@ in
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-  # services.xserver.displayManager.gdm.autoSuspend = false;
-
-  # Enable i3 window manager
-  services.xserver.desktopManager.xterm.enable = false;
-  services.xserver.displayManager.defaultSession = "none+i3";
-  services.xserver.windowManager.i3 = {
+  services.xserver = {
     enable = true;
-    extraPackages = with pkgs; [
-      dmenu
-      i3status
-      i3lock
-    ];
-  };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
+
+    desktopManager.xterm = {
+      enable = false;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
+    };
+
+    displayManager = {
+      lightdm.enable = true;
+      defaultSession = "xfce+i3";
+    };
+
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+      ];
+    };
+
+    videoDrivers = ["nvidia"];
   };
 
   # Enable CUPS to print documents.
@@ -117,9 +126,6 @@ in
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.carl = {
@@ -173,8 +179,6 @@ in
   hardware.graphics = {
     enable = true;
   };
-
-  services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
     # Modesetting is required.
