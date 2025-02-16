@@ -73,15 +73,12 @@ in
     LC_TIME = "en_US.UTF-8";
   };
 
+  environment.pathsToLink = [ "/libexec" ];
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
     layout = "us";
-
-    # xkb = {
-    #   layout = "us";
-    #   variant = "";
-    # };
 
     desktopManager = {
       xterm.enable = false;
@@ -92,23 +89,12 @@ in
       };
     };
 
-    displayManager = {
-      lightdm.enable = true;
-      defaultSession = "xfce+i3";
-    };
+    windowManager.i3.enable = true;
 
-    windowManager.default = "i3";
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        i3status
-        i3lock
-      ];
-    };
-
-    videoDrivers = ["nvidia"];
+    # videoDrivers = ["nvidia"]; # was causing black screen
   };
+
+  services.displayManager.defaultSession = "xfce";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
