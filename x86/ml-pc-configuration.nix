@@ -82,8 +82,8 @@ in
       variant = "";
     };
 
-    desktopManager.xterm = {
-      enable = false;
+    desktopManager = {
+      xterm.enable = false;
       xfce = {
         enable = true;
         noDesktop = true;
