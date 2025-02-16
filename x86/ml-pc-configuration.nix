@@ -76,11 +76,12 @@ in
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
+    layout = "us";
 
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
+    # xkb = {
+    #   layout = "us";
+    #   variant = "";
+    # };
 
     desktopManager = {
       xterm.enable = false;
@@ -96,6 +97,7 @@ in
       defaultSession = "xfce+i3";
     };
 
+    windowManager.default = "i3";
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
