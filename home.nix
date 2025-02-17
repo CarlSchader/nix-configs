@@ -12,11 +12,13 @@ let
     k = "kubectl";
     tarz = "tar --zstd";
     venv = "source .venv/bin/activate";
+    bw-login = "export $(bw login | sed -En '4p' | awk '{print $3}')";
   };
 in {  
   home.packages = with pkgs; [ 
     ## user applications
     brave
+    bitwarden-cli
 
     ## dev tools
     tmux
