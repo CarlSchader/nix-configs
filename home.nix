@@ -18,7 +18,6 @@ in {
   home.packages = with pkgs; [ 
     ## user applications
     brave
-    bitwarden-cli
 
     ## dev tools
     tmux
@@ -36,9 +35,11 @@ in {
     mediainfo
     ffmpeg
     postgresql_17
+    nmap
 
     ## compilers and runtimes
     nodejs_23
+    gcc
     cargo
     python310
     go
