@@ -35,6 +35,7 @@ in {
     virtualenv
     mediainfo
     ffmpeg
+    postgresql_17
 
     ## compilers and runtimes
     nodejs_23
