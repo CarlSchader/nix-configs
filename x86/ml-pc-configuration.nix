@@ -121,6 +121,9 @@ in
     #media-session.enable = true;
   };
 
+  # enable docker
+  virtualisation.docker.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.carl = {
     isNormalUser = true;
