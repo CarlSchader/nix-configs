@@ -48,7 +48,11 @@ in {
     nixd
     rust-analyzer
     pyright
+    python312Packages.python-lsp-server
     typescript-language-server
+
+    # linters
+    ruff
   ];
 
   # programs.nixvim = import ./nixvim.nix { inherit pkgs; };
