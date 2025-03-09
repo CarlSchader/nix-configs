@@ -35,6 +35,8 @@ in {
     ffmpeg
     postgresql_17
     nmap
+    pnpm
+    gnumake
 
     ## compilers and runtimes
     nodejs_23
@@ -43,7 +45,7 @@ in {
     python310
     go
     docker_26
-    jdk
+    jdk23
 
     ## lsps
     nixd
