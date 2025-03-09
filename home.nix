@@ -43,6 +43,7 @@ in {
     python310
     go
     docker_26
+    jdk
 
     ## lsps
     nixd
