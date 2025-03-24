@@ -98,7 +98,7 @@ in
       ];
     };
 
-    # videoDrivers = ["nvidia"]; # was causing black screen
+    videoDrivers = ["nvidia"]; # was causing black screen
   };
 
 
