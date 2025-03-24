@@ -50,6 +50,7 @@ in {
     pyright
     python312Packages.python-lsp-server
     typescript-language-server
+    lua-language-server
 
     # linters
     ruff
