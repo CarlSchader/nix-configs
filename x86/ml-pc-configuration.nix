@@ -40,9 +40,11 @@ in
     allowedTCPPorts = [ 22 80 443 ];
     allowedTCPPortRanges = [ 
       { from = 8000; to = 9000; }
+      { from = 3000; to = 4000; }
     ];
     allowedUDPPortRanges = [
       { from = 8000; to = 9000; }
+      { from = 3000; to = 4000; }
     ];
   };
 
@@ -128,6 +130,16 @@ in
   users.users.carl = {
     isNormalUser = true;
     description = "Carl Schader";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = defaultUserPackages;
+    shell = defaultShell;
+    openssh.authorizedKeys.keys = authorizedKeys; 
+  };
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.saronic = {
+    isNormalUser = true;
+    description = "carlschader-saronic";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = defaultUserPackages;
     shell = defaultShell;

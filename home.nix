@@ -61,11 +61,12 @@ in {
 
   # programs.nixvim = import ./nixvim.nix { inherit pkgs; };
 
-  programs.git = {
-    enable = true;
-    userName = "Carl Schader";
-    userEmail = "carl.schader@saronic.com";
-  };
+  # # Disabled because it's easier to just set this per user since this home config is used by multiple users
+  # programs.git = {
+  #   enable = true;
+  #   userName = "Carl Schader";
+  #   userEmail = "carl.schader@saronic.com";
+  # };
 
   programs.zsh = {
     enable = true;
