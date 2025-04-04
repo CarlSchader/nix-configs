@@ -7,6 +7,7 @@ let
   defaultShell = pkgs.bash;
   defaultUserPackages = with pkgs; [
     gcc
+    git
     code-cursor
   ];
   authorizedKeys = [ 
