@@ -13,7 +13,10 @@ let
 
     # git aliases
     gfa = "git fetch --all";
-    gp = "git pull";
+    ga = "git add .";
+    gca = "git commit -am";
+    gp = "git push";
+    gpl = "git pull";
     gs = "git switch";
 
     tarz = "tar --zstd";
