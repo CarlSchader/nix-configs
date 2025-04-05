@@ -10,6 +10,12 @@ let
     l = "ls -G";
     g = "grep";
     k = "kubectl";
+
+    # git aliases
+    gfa = "git fetch --all";
+    gp = "git pull";
+    gs = "git switch";
+
     tarz = "tar --zstd";
     venv = "source .venv/bin/activate";
     bw-login = "export $(bw login | sed -En '4p' | awk '{print $3}')";
