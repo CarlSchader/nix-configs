@@ -57,6 +57,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.carl = import ./home.nix;
+          home-manager.users.connor = import ./home.nix;
           home-manager.users.saronic = import ./home.nix;
           # home-manager.sharedModules = [
           #   nixvim.homeManagerModules.nixvim

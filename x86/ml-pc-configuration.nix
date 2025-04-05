@@ -7,7 +7,6 @@ let
   defaultShell = pkgs.bash;
   defaultUserPackages = with pkgs; [
     gcc
-    git
     code-cursor
   ];
   authorizedKeys = [ 
@@ -135,6 +134,15 @@ in
     packages = defaultUserPackages;
     shell = defaultShell;
     openssh.authorizedKeys.keys = authorizedKeys; 
+  };
+
+  users.users.connor = {
+    isNormalUser = true;
+    description = "Connor Jones";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = defaultUserPackages;
+    shell = defaultShell;
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE8N1WCZEQv43tuIvndSbtSPa3uYxFUfGh6LN0BFbnyt connorjones@MacBookPro" ]; 
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
